@@ -1,12 +1,33 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import { AuthContext } from "../Providers/AuthProvider";
 
 
-const Login = () => {
+const Loggin = () => {
+    const { signIn, handleGoogleSignIn, handleGithubSignIn } = useContext(AuthContext);
+
+    const handleLogin = e => {
+        e.preventDefault();
+        console.log(e.currentTarget);
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(email, password);
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user);
+                alert('login Successfully');
+            })
+            .catch(error => {
+                console.error(error);
+                alert('not match in user email or password');
+            })
+    }
     return (
         <div>
             <h2 className="text-3xl text-center my-10">Please Login</h2>
-            <form className="md:w-3/4 lg:w-1/2 mx-auto">
+            <form onSubmit={handleLogin} className="md:w-3/4 lg:w-1/2 mx-auto">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
@@ -29,10 +50,10 @@ const Login = () => {
                     <p className="text-2xl text-center">or</p>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn btn-primary">Google Login</button>
+                    <button onClick={handleGoogleSignIn} className="btn btn-primary">Google Login</button>
                 </div>
                 <div className="form-control mt-6">
-                    <button  className="btn btn-primary">GitHub Login</button>
+                    <button onClick={handleGithubSignIn} className="btn btn-primary">GitHub Login</button>
                 </div>
             </form>
             <p className="text-center mt-4 mb-8">Do not have an account <Link to='/register' className="text-blue-600 font-bold">Register</Link></p>
@@ -41,4 +62,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Loggin;
