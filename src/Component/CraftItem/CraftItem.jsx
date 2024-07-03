@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CraftItem = ({ artAndCraft }) => {
 
-    const { id, imageUrl, itemName, subcategoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName } = artAndCraft;
+    const { _id, imageUrl, itemName, subcategoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName } = artAndCraft;
 
     return (
         <div>
@@ -26,7 +26,7 @@ const CraftItem = ({ artAndCraft }) => {
                     <p className="mb-2 text-xl"><span className="font-bold">Processing Time: </span>{processingTime}</p>
 
                     <div>
-                        <Link to={`/artAndCraft/${id}`}>
+                        <Link to={`/craft/${_id}`}>
                             <button className="btn btn-primary w-full">View Details</button>
                         </Link>
                     </div>
