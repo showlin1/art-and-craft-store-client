@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Footer from "../Footer/Footer";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
@@ -11,7 +12,7 @@ const Register = () => {
 
     const { createUser } = useContext(AuthContext);
 
-    const [registerError, setRegisterError] = useState('');
+    // const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
     // const [success, setSuccess] = useState('');
@@ -27,19 +28,37 @@ const Register = () => {
         console.log(name, photoUrl, email, password);
 
         //reset error
-        setRegisterError('');
+        // setRegisterError('');
         // setSuccess('');
 
         if (password.length < 6) {
-            setRegisterError('Password should be at least 6 charecters or longer');
+            Swal.fire({
+                // title: 'Password at least 6 characters',
+                text: 'Password should be at least 6 characters or longer',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
+            // setRegisterError('Password should be at least 6 characters or longer');
             return;
         }
         else if (!/[A-Z]/.test(password)) {
-            setRegisterError('Your password shuould have at least one upper case charecters.');
+            Swal.fire({
+                // title: 'Password at least one upper case',
+                text: 'Your password should have at least one upper case characters.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
+            // setRegisterError('Your password should have at least one upper case characters.');
             return;
         }
         else if (!/[a-z]/.test(password)) {
-            setRegisterError('Your password should have at least one lower case charecters.')
+            Swal.fire({
+                // title: 'Password at least one Lower case',
+                text: 'Your password should have at least one lower case charecters.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              })
+            // setRegisterError('Your password should have at least one lower case charecters.')
             return;
         }
 
@@ -48,7 +67,16 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
-                alert('user Created Successfully.')
+                // const user={email};
+                if(result.user){
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'user Created Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
+                }
+                
             })
             .catch(error => {
                 console.error(error);
@@ -105,9 +133,9 @@ const Register = () => {
                     <button className="btn btn-primary">Register</button>
                 </div>
             </form>
-            {
+            {/* {
                 registerError && <p className="text-red-700">{registerError}</p>
-            }
+            } */}
             {/* {
             success && <p className="text-green-700">{success}</p>
         } */}

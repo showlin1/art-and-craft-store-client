@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Loggin = () => {
@@ -17,11 +18,27 @@ const Loggin = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
-                alert('login Successfully');
+                if(result.user){
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Login Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                      })
+                }
+                // alert('login Successfully');
             })
             .catch(error => {
                 console.error(error);
-                alert('not match in user email or password');
+                if(error){
+                    Swal.fire({
+                        title: 'Not Match',
+                        text: 'not match in user email or password',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                      })
+                }
+                // alert('not match in user email or password');
             })
     }
     return (
