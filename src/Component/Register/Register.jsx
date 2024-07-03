@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
-
     // const [registerError, setRegisterError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 

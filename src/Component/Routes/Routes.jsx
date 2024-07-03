@@ -6,6 +6,7 @@ import Register from "../Register/Register";
 import Page404 from "../NotFound/Page404";
 import AddCraftItem from "../AddCraftItem/AddCraftItem";
 import ViewDetails from "../ViewDetails/ViewDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/addCraftItem',
-        element: <AddCraftItem></AddCraftItem>
+        element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>
       },
       {
         path: '/craft/:_id',
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
         loader: () => fetch('http://localhost:5000/artAndCraft')
       }
     ]
