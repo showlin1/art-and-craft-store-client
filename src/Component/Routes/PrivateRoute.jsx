@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     if(loading){
         return <progress className="progress w-56 mr-5"></progress>
     }
-    if (user.email) {
+    if (user) {
         return children;
     }
 
