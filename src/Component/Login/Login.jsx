@@ -5,7 +5,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 
-const Loggin = () => {
+const Login = () => {
     const { signIn, handleGoogleSignIn, handleGithubSignIn } = useContext(AuthContext);
 
     const handleLogin = e => {
@@ -79,4 +79,4 @@ const Loggin = () => {
     );
 };
 
-export default Loggin;
+export default Login;

@@ -4,11 +4,15 @@ import { AuthContext } from "../Providers/AuthProvider";
 
 
 const PrivateRoute = ({ children }) => {
-    const { user } = useContext(AuthContext);
-    if (user) {
+    const { user,loading } = useContext(AuthContext);
+    if(loading){
+        return <progress className="progress w-56 mr-5"></progress>
+    }
+    if (user.email) {
         return children;
     }
-    return <Navigate to="/login"></Navigate>
+
+    return <Navigate to="/login" replace></Navigate>
 };
 
 export default PrivateRoute;

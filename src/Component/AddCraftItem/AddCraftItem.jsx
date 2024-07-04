@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 
 
 const AddCraftItem = () => {
+    
     const handleAddArtAndCraft = e =>{
         e.preventDefault();
 
@@ -16,9 +17,9 @@ const AddCraftItem = () => {
         const customization = form.customization.value;
         const processingTime = form.processingTime.value;
         const stockStatus = form.stockStatus.value;
-        const userEmail = form.userEmail.value;
+        const email = form.email.value;
         const userName = form.userName.value;
-        const newArtAndCraft = {imageUrl,itemName,subcategoryName,description,price,rating,customization,processingTime,stockStatus,userEmail,userName};
+        const newArtAndCraft = {imageUrl,itemName,subcategoryName,description,price,rating,customization,processingTime,stockStatus,email,userName};
         console.log(newArtAndCraft);
 
         // send data to the server
@@ -152,7 +153,7 @@ const AddCraftItem = () => {
                                 <span className="label-text">User Email</span>
                             </label>
                             <label className="input-group">
-                                <input type="text" name="userEmail" className="input input-bordered w-full"
+                                <input type="text" name="email" className="input input-bordered w-full"
                                     placeholder="User Email" />
                             </label>
                         </div>
