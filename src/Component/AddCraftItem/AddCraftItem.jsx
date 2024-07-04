@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 
 const AddCraftItem = () => {
     
+    
     const handleAddArtAndCraft = e =>{
         e.preventDefault();
 
@@ -154,7 +155,7 @@ const AddCraftItem = () => {
                             </label>
                             <label className="input-group">
                                 <input type="text" name="email" className="input input-bordered w-full"
-                                    placeholder="User Email" />
+                                    placeholder="Email" />
                             </label>
                         </div>
                     </div>

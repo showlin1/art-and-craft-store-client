@@ -44,8 +44,9 @@ const router = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/artAndCraft')
       },
       {
-        path:'/updateArtAndCraft',
-        element:<PrivateRoute><UpdateArtAndCraft></UpdateArtAndCraft></PrivateRoute>
+        path:'/updateArtAndCraft/:_id',
+        element:<PrivateRoute><UpdateArtAndCraft></UpdateArtAndCraft></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/artAndCraft')
       }
     ]
   },

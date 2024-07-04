@@ -18,6 +18,8 @@ const MyArtAndCraftList = () => {
             })
     }, [user])
 
+    
+
     return (
         <div className="mt-14">
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 mb-14 mt-10">
@@ -33,8 +35,10 @@ const MyArtAndCraftList = () => {
                                 <p className="text-xl mb-2"><span className="font-bold">Customization: </span>{p.customization}</p>
                                 <p className="text-xl mb-2"><span className="font-bold">Stock Status: </span>{p.stockStatus}</p>
                                 <div className="flex mt-8 gap-14">
-                                    <Link to={`/craft/${p._id}`}><button className="btn btn-primary">Update</button></Link>
-                                    <button className="btn btn-primary">Delete</button>
+                                    <Link to={`/updateArtAndCraft/${p._id}`}><button className="btn btn-primary">Update</button></Link>
+                                    <Link >
+                                        <button className="btn btn-primary">Delete</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
