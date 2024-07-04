@@ -10,7 +10,7 @@ const Home = () => {
         <div className="mt-8">
             <Banner></Banner>
             <div className="mt-14 mb-6">
-                <h1 className="text-6xl text-center font-bold text-purple-600">Painting and Drawing:{artAndCrafts.length} </h1>
+                <h1 className="text-6xl text-center font-bold text-purple-600">Painting and Drawing</h1>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14 mb-20">
                 {

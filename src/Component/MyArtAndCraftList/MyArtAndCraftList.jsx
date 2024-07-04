@@ -54,11 +54,12 @@ const MyArtAndCraftList = () => {
 
     return (
         <div className="mt-14">
-            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 mb-14 mt-10">
+            <div >
                 {
                     item?.map(p => (
 
-                        <div className="card card-side bg-[#d9c3ce]  shadow-xl" key={p._id}>
+                       <div key={p._id}>
+                         <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 mb-14 mt-10 rounded-xl bg-[#d9c3ce]  shadow-xl" >
                             <figure><img src={p.imageUrl} className="rounded-xl w-[700px] h-[400px]" /></figure>
                             <div className=" w-full p-16 ">
                                 <h2 className="card-title font-bold mb-2">{p.itemName}</h2>
@@ -74,6 +75,7 @@ const MyArtAndCraftList = () => {
                                 </div>
                             </div>
                         </div>
+                       </div>
                     ))
                 }
             </div>
