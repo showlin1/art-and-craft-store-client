@@ -12,7 +12,7 @@ const MyArtAndCraftList = () => {
     const [control, setControl] = useState(false);
     // console.log(user);
     useEffect(() => {
-        fetch(`http://localhost:5000/myArtAndCraft/${user?.email}`)
+        fetch(`https://art-and-craft-store-server-five.vercel.app/myArtAndCraft/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -33,7 +33,7 @@ const MyArtAndCraftList = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/deleteArtAndCraft/${_id}`, {
+                fetch(`https://art-and-craft-store-server-five.vercel.app/deleteArtAndCraft/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
